@@ -16,7 +16,7 @@ function Navbar() {
       <Stack
         direction = "row"
         gap = "40px"
-        fontSixe = "24px"
+        fontSize = "24px"
         alignItems="flex-end"
        >
         <Link to="/" style={{textDecoration: 'none', color: '#3A1212', borderBottom: '3px solid #FF2625'}}>Home</Link>

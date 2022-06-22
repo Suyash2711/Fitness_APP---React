@@ -1,7 +1,7 @@
 import React, {useState, useEffect } from 'react'
 import { Box, Button, Stack,TextField, Typography} from '@mui/material';
 import { exerciseOptions, fetchData } from '../utils/fetchData';
-import Exercises from './Exercises';
+import {Exercises} from './Exercises';
 import HorizontalScrollbar from './HorizontalScrollbar';
 
 const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
@@ -11,7 +11,6 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
     useEffect(() => {
       const fetchExercisesData = async () => {
           const bodyPartsData = await fetchData('https://exercisedb.p.rapidapi.com/exercises/bodyPartList', exerciseOptions);
-        
           setBodyParts(['all', ...bodyPartsData]);
         }
         fetchExercisesData();
@@ -49,7 +48,6 @@ const SearchExercises = ({setExercises, bodyPart, setBodyPart}) => {
                     borderRadius:'4px'
                 },
                 width: {lg:'800px', xs: '250px'},
-                // alignItems: "center",
                 backgroundColor: '#fff',
                 borderRadius: '40px'
             }}
