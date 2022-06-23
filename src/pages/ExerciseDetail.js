@@ -20,8 +20,9 @@ const ExerciseDetail = () => {
       const exerciseDetailData = await fetchData(`${exerciseDbUrl}/exercises/exercise/${id}`, exerciseOptions);
       setexerciseDetail(exerciseDetailData);
 
-      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?q=${exerciseDetailData.name}`, youtubeOptions);
-      setexerciseVideos(exerciseVideosData);
+      const exerciseVideosData = await fetchData(`${youtubeSearchUrl}/search?query=${exerciseDetailData.name}`, youtubeOptions);
+      console.log(exerciseVideosData);
+      setexerciseVideos(exerciseVideosData.contents);
     }
     fetchExerciseData();
   }, [id])
@@ -30,7 +31,8 @@ const ExerciseDetail = () => {
   return (  
     <Box>
       <Detail exerciseDetail = {exerciseDetail} />
-      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name} />
+      {console.log(exerciseVideos)}
+      <ExerciseVideos exerciseVideos={exerciseVideos} name={exerciseDetail.name}/>
       <SimilarExercises />
     </Box>
   )
